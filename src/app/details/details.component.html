@@ -1,0 +1,51 @@
+
+<router-outlet></router-outlet>
+<div  id="div1">
+  <input id="input1" class="form control"  placeholder="Search By USN, Name or Semester" type="text" name="search"
+  [(ngModel)]="searchtext"  />
+
+</div>
+
+<div id="div2">
+
+  <app-groupbysem [total]="gettotal()"
+  [sem1]="getsem1count()"
+  [sem2]="getsem2count()"
+
+  (selectchanged)="onoptionchange($event)">
+</app-groupbysem>
+</div>
+<table class="table table-striped">
+<thead>
+
+  <tr>
+
+    <th  (click)="sortData('usn')">USN &nbsp;<i class="fa fa-sort"></i></th>
+    <th (click)="sortData('name')">Name &nbsp;<i class="fa fa-sort"></i></th>
+    <th (click)="sortData('semester')">Semester &nbsp;<i class="fa fa-sort"></i></th>
+    <th>Action</th>
+  </tr>
+</thead>
+<tbody>
+
+<ng-container *ngFor="let st of students |filter:searchtext " >
+
+  <tr  *ngIf="selectedgroup=='all' || selectedgroup==st.semester">
+    <td >{{st.usn}}</td>
+    <td>{{st.name}}</td>
+    <td>{{st.semester}}</td>
+    <td>
+      <button routerLink="/students/edit/{{st.usn}}">More</button>
+    </td>
+
+
+    </tr>
+
+</ng-container>
+
+</tbody>
+
+</table>
+<!-- ------------------------------- -->
+
+<button (click)="logoutfrom()">Logout</button>

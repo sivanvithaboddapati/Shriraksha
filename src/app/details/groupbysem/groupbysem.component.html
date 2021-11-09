@@ -1,0 +1,18 @@
+
+<label>Semester:</label>
+  <select id="dropdown1" [(ngModel)]="selectedgroup" (ngModelChange)="selectedchangedfunc()">
+
+     <option value="all" selected>All</option>
+     <option value="1st" >1st sem</option>
+     <option value="2nd">2nd sem</option>
+  </select>
+
+
+<div>
+
+  <p *ngIf="selectedgroup=='all'">{{"Total students = "+total}}</p>
+  <p *ngIf="selectedgroup=='1st'">{{"Total Sem1 students = "+sem1}}</p>
+  <p *ngIf="selectedgroup=='2nd'">{{"Total Sem2 students = "+sem2}}</p>
+
+  </div>
+

@@ -1,0 +1,37 @@
+
+
+
+<div *ngIf="showsuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Student Edited!</strong>
+  <button (click)="removemsg()" type="button" class="Close"  data-dismiss="alert" aria-label="Close">x
+
+  </button>
+</div>
+
+<div>
+
+  <form [formGroup]="editstudent" (ngSubmit)="onUpdate()">
+
+    <div class="form-group">
+
+      <label style="font-size: 18px;">Usn&nbsp;:&nbsp;{{value}}</label>
+ <br><br>
+      <label>name</label>
+      <input type="text"  class="form-control"  name="name"  formControlName="name">
+    </div>
+
+    <div class="form-group">
+        <label>semester</label>
+        <select class="custom-select"   class="form-control"  formControlName="semester">
+        <option value="" disabled>Choose your semester</option>
+        <option *ngFor="let sem of semesters" [ngValue]="sem">{{sem}}</option>
+      </select>
+      </div>
+    <button class=" b1 btn btn-primary">Edit</button>
+    &nbsp;&nbsp;
+    <!-- <p>{{value}}</p> -->
+    <button class="b1 btn btn-primary" (click)="deletestudent(value)">Delete</button>
+
+  </form>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="form-group">
+
+  <form #userform="ngForm" (ngSubmit)="onSubmit(userform)">
+
+
+  <p>
+    <label for="email">Email</label>
+    <input type="text" name="email" ngModel>
+  </p>
+
+
+    <p>
+      <label for="password">Password</label>
+      <input type="text" name="password" ngModel>
+    </p>
+    <p>
+      <button class="btn btn-primary w-20"  type="submit">Submit</button>&nbsp;
+      <button class="btn btn-primary w-20"  routerLink="/login">Login</button>
+    </p>
+  </form>
+</div>
+
